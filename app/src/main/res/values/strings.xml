@@ -1,12 +1,27 @@
 <resources>
     <string name="app_name">CarCare</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="carNameTV">Nazwa</string>
+    <string name="mileageET">Wpisz przebieg w km</string>
+    <string name="mileageTV">Przebieg</string>
+    <string name="expensesBtn">Wydatki</string>
+    <string name="repairsBtn">Naprawy</string>
+    <string name="controlsBtn">Kontrole</string>
+    <string name="notifisBtn">Powiadomienia</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_car_data">Dane samochodu</string>
+    <string name="carNameDatumTV">Nazwa</string>
+    <string name="carNameDatumET">Twoja nazwa</string>
+    <string name="carData">Dane auta</string>
+    <string name="carBrandDatumTV">Marka</string>
+    <string name="carModelDatumTV">Model</string>
+    <string name="carBrandDatumET">Np. Chevrolet</string>
+    <string name="carModelDatumET">Np. Cruze, Aveo, Camaro</string>
+    <string name="carProductionYearDatumET">Np. 2015</string>
+    <string name="carProductionYearDatumTV">Rok produkcji</string>
+    <string name="carEngineTypeDatumTV">Typ silnika</string>
+    <string name="carEngineTypeET">Np. benzyna, diesel</string>
+    <string name="saveBtn">Zapisz</string>
+
+    <string name="title_activity_notifis">NotifisActivity</string>
 </resources>
