@@ -7,16 +7,13 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.plata.carcare.R;
 import com.plata.carcare.databinding.ActivityCarDataBinding;
-
 import java.io.InputStream;
 
 public class CarDataActivity extends AppCompatActivity {

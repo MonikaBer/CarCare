@@ -2,16 +2,16 @@ package com.plata.carcare.activities;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import com.plata.carcare.databinding.ActivityNotifisBinding;
+import com.plata.carcare.databinding.ActivityRepairsBinding;
 
-public class NotifisActivity extends AppCompatActivity {
+public class RepairsActivity extends AppCompatActivity {
 
-    private ActivityNotifisBinding binding;
+    private ActivityRepairsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityNotifisBinding.inflate(getLayoutInflater());
+        binding = ActivityRepairsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -23,5 +23,15 @@
     <string name="carEngineTypeET">Np. benzyna, diesel</string>
     <string name="saveBtn">Zapisz</string>
 
-    <string name="title_activity_notifis">NotifisActivity</string>
+    <string name="title_activity_notifis">Powiadomienia</string>
+
+
+    <string name="title_activity_controls">Kontrole</string>
+
+
+    <string name="title_activity_repairs">Naprawy</string>
+
+
+    <string name="title_activity_expenses">Wydatki</string>
+
 </resources>

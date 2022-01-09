@@ -10,10 +10,45 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.CarCare">
         <activity
+                android:name=".activities.RepairsActivity"
+                android:exported="true"
+                android:label="@string/title_activity_repairs"
+                android:parentActivityName=".activities.MainActivity"
+                android:theme="@style/Theme.CarCare.NoActionBar" >
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.plata.carcare.activities.MainActivity" />
+        </activity>
+        <activity
+                android:name=".activities.ExpensesActivity"
+                android:exported="true"
+                android:label="@string/title_activity_expenses"
+                android:parentActivityName=".activities.MainActivity"
+                android:theme="@style/Theme.CarCare.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.plata.carcare.activities.MainActivity" />
+        </activity>
+        <activity
+                android:name=".activities.ControlsActivity"
+                android:exported="true"
+                android:label="@string/title_activity_controls"
+                android:parentActivityName=".activities.MainActivity"
+                android:theme="@style/Theme.CarCare.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.plata.carcare.activities.MainActivity" />
+        </activity>
+        <activity
                 android:name=".activities.NotifisActivity"
                 android:exported="true"
                 android:label="@string/title_activity_notifis"
-                android:theme="@style/Theme.CarCare.NoActionBar" />
+                android:parentActivityName=".activities.MainActivity"
+                android:theme="@style/Theme.CarCare.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.plata.carcare.activities.MainActivity" />
+        </activity>
         <activity
                 android:name=".activities.CarDataActivity"
                 android:exported="true"
