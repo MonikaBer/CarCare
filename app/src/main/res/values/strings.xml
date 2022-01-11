@@ -25,13 +25,25 @@
 
     <string name="title_activity_notifis">Powiadomienia</string>
 
-
     <string name="title_activity_controls">Kontrole</string>
-
 
     <string name="title_activity_repairs">Naprawy</string>
 
-
     <string name="title_activity_expenses">Wydatki</string>
 
+    <string name="title_activity_add_control">Nowa kontrola</string>
+    <string name="newControlTypeTV">Typ kontroli</string>
+    <string name="newControlTypeChooseTV">Wybór typu</string>
+    <string name="newControlNameTV">Nazwa kontroli</string>
+    <string name="newControlNameET">np. wymiana oleju</string>
+    <string name="dateTV">Data</string>
+    <string name="newControlDateET">Wpisz datę</string>
+    <string name="newControlMileageTV">Przebieg</string>
+    <string name="newControlDescET">Opis kontroli</string>
+    <string name="saveNotifi">Zapisz powiadomienie</string>
+    <string name="newControlCycleET">np. 10000</string>
+    <string name="newControlCycleTV">Co ile</string>
+    <string name="save">Zapisz</string>
+
+    <string name="title_activity_type_choose">Typ kontroli</string>
 </resources>

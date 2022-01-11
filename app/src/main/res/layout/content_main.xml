@@ -74,15 +74,27 @@
             app:layout_constraintTop_toBottomOf="@+id/carPhotoIV" />
 
     <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@android:drawable/ic_menu_save"
+            android:id="@+id/carMileageSaveBtn"
+            android:onClick="click"
+            app:layout_constraintEnd_toEndOf="@+id/mileageTV"
+            app:layout_constraintStart_toStartOf="@+id/mileageTV"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/mileageTV" />
+
+    <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             app:srcCompat="@android:drawable/ic_menu_camera"
             android:id="@+id/mileagePhotoBtn"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/mileageTV"
-            app:layout_constraintStart_toStartOf="@+id/mileageTV"
-            app:layout_constraintEnd_toEndOf="@+id/mileageTV"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:onClick="click"
+            tools:ignore="SpeakableTextPresentCheck"
+            app:layout_constraintStart_toStartOf="@+id/mileageET"
+            app:layout_constraintEnd_toEndOf="@+id/mileageET"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/mileageET" />
 
     <Button
             android:text="@string/expensesBtn"

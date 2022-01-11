@@ -4,15 +4,10 @@ import java.util.Date;
 
 public class SeasonChange extends Repair {
 
-    private enum Type { TYRES, WASHER_FLUID }
-    private enum Season { WINTER, SUMMER }
+    private String season;
 
-    private Type type;
-    private Season season;
-
-    public SeasonChange(Status status, Date date, int mileage, String desc, String producent, String productType, String productDesc, float partsCost, float workCost, Type type, Season season) {
-        super(status, date, mileage, desc, producent, productType, productDesc, partsCost, workCost);
-        this.type = type;
+    public SeasonChange(int id, Status status, Date date, String name, int mileage, String desc, String type, String producent, String productType, String productDesc, float partsCost, float workCost, String season) {
+        super(id, status, date, name, mileage, desc, type, producent, productType, productDesc, partsCost, workCost);
         this.season = season;
     }
 }

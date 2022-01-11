@@ -5,11 +5,13 @@ import java.util.Date;
 public class Notifi {
 
     private Date date;
+    private String name;
     private Service service;
     private String desc;
 
-    public Notifi(Date date, Service service, String desc) {
+    public Notifi(Date date, String name, Service service, String desc) {
         this.date = date;
+        this.name = name;
         this.service = service;
         this.desc = desc;
     }
@@ -20,6 +22,14 @@ public class Notifi {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Service getService() {

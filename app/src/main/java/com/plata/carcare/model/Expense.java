@@ -3,11 +3,13 @@ package com.plata.carcare.model;
 public class Expense {
 
     private int mileage;
+    private String name;
     private float cost;
     private String desc;
 
-    public Expense(int mileage, float cost, String desc) {
+    public Expense(int mileage, String name, float cost, String desc) {
         this.mileage = mileage;
+        this.name = name;
         this.cost = cost;
         this.desc = desc;
     }
@@ -18,6 +20,14 @@ public class Expense {
 
     public void setMileage(int mileage) {
         this.mileage = mileage;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public float getCost() {

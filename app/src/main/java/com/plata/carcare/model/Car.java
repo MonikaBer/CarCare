@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 
 public class Car {
 
+    private int id;
     private String name;
     private int mileage;
     private Bitmap photo;
@@ -12,7 +13,8 @@ public class Car {
     private int productionYear;
     private String engineType;
 
-    public Car(String name, int mileage, Bitmap photo, String brand, String model, int productionYear, String engineType) {
+    public Car(int id, String name, int mileage, Bitmap photo, String brand, String model, int productionYear, String engineType) {
+        this.id = id;
         this.name = name;
         this.mileage = mileage;
         this.photo = photo;
@@ -20,6 +22,14 @@ public class Car {
         this.model = model;
         this.productionYear = productionYear;
         this.engineType = engineType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

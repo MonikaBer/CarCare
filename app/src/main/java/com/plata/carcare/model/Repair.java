@@ -10,8 +10,8 @@ public class Repair extends Service {
     protected float partsCost;
     protected float workCost;
 
-    public Repair(Status status, Date date, int mileage, String desc, String producent, String productType, String productDesc, float partsCost, float workCost) {
-        super(status, date, mileage, desc);
+    public Repair(int id, Status status, Date date, String name, int mileage, String desc, String type, String producent, String productType, String productDesc, float partsCost, float workCost) {
+        super(id, status, date, name, mileage, desc, type);
         this.producent = producent;
         this.productType = productType;
         this.productDesc = productDesc;
