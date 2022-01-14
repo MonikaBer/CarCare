@@ -1,17 +1,39 @@
 package com.plata.carcare.model;
 
+import java.util.Date;
+
 public class Expense {
 
+    private int id;
+    private Date date;
     private int mileage;
     private String name;
-    private float cost;
+    private double cost;
     private String desc;
 
-    public Expense(int mileage, String name, float cost, String desc) {
+    public Expense(int id, Date date, int mileage, String name, double cost, String desc) {
+        this.id = id;
+        this.date = date;
         this.mileage = mileage;
         this.name = name;
         this.cost = cost;
         this.desc = desc;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getMileage() {
@@ -30,11 +52,11 @@ public class Expense {
         this.name = name;
     }
 
-    public float getCost() {
+    public double getCost() {
         return cost;
     }
 
-    public void setCost(float cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 

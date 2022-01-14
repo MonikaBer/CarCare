@@ -100,12 +100,73 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         statement.bindString(5, desc);
         statement.bindString(6, type);
         statement.bindLong(7, id);
-        statement.executeInsert();
+        statement.executeUpdateDelete();
     }
 
     public void deleteControl(int id) {
         SQLiteDatabase database = getWritableDatabase();
         String sql = "DELETE FROM CONTROL WHERE id = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, String.valueOf(id));
+        statement.executeUpdateDelete();
+    }
+
+    public void insertExpense(String date, int mileage, String name, double cost, String desc) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO EXPENSE VALUES (NULL, ?, ?, ?, ?, ?)";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, date);
+        statement.bindLong(2, mileage);
+        statement.bindString(3, name);
+        statement.bindDouble(4, cost);
+        statement.bindString(5, desc);
+        statement.executeInsert();
+    }
+
+    public void updateExpense(int id, String date, int mileage, String name, double cost, String desc) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "UPDATE EXPENSE SET date = ?, mileage = ?, name = ?, cost = ?, desc = ? WHERE id = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, date);
+        statement.bindLong(2, mileage);
+        statement.bindString(3, name);
+        statement.bindDouble(4, cost);
+        statement.bindString(5, desc);
+        statement.bindLong(6, id);
+        statement.executeUpdateDelete();
+    }
+
+    public void deleteExpense(int id) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE FROM EXPENSE WHERE id = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, String.valueOf(id));
+        statement.executeUpdateDelete();
+    }
+
+    public void insertNotifi(String serviceName, String serviceTime, String serviceType) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO NOTIFI VALUES (NULL, ?, ?, ?)";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, serviceName);
+        statement.bindString(2, serviceTime);
+        statement.bindString(3, serviceType);
+        statement.executeInsert();
+    }
+
+    public void deleteNotifi(int id) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE FROM NOTIFI WHERE id = ?";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
@@ -166,28 +227,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void deleteMileageChangeType(int id) {
         SQLiteDatabase database = getWritableDatabase();
         String sql = "DELETE FROM MILEAGE_CHANGE_TYPE WHERE id = ?";
-
-        SQLiteStatement statement = database.compileStatement(sql);
-        statement.clearBindings();
-        statement.bindString(1, String.valueOf(id));
-        statement.executeUpdateDelete();
-    }
-
-    public void insertNotifi(String serviceName, String serviceTime, String serviceType) {
-        SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO NOTIFI VALUES (NULL, ?, ?, ?)";
-
-        SQLiteStatement statement = database.compileStatement(sql);
-        statement.clearBindings();
-        statement.bindString(1, serviceName);
-        statement.bindString(2, serviceTime);
-        statement.bindString(3, serviceType);
-        statement.executeInsert();
-    }
-
-    public void deleteNotifi(int id) {
-        SQLiteDatabase database = getWritableDatabase();
-        String sql = "DELETE FROM NOTIFI WHERE id = ?";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();

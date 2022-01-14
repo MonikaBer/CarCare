@@ -56,10 +56,11 @@ public class MainActivity extends AppCompatActivity {
         sqLiteHelper = new SQLiteHelper(this, "CarDB.sqlite", null, 1);
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CAR (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, mileage INTEGER, photo BLOB, brand TEXT, model TEXT, production_year INTEGER, engine_type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CONTROL (id INTEGER PRIMARY KEY AUTOINCREMENT, status TEXT, date TEXT, name TEXT, mileage INTEGER, desc TEXT, type TEXT)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS EXPENSE (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, mileage INTEGER, name text, cost REAL, desc TEXT)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS NOTIFI (id INTEGER PRIMARY KEY AUTOINCREMENT, service_name TEXT, service_time TEXT, service_type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CONTROL_TYPE (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SEASON_CHANGE_TYPE (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS MILEAGE_CHANGE_TYPE (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT)");
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS NOTIFI (id INTEGER PRIMARY KEY AUTOINCREMENT, service_name TEXT, service_time TEXT, service_type TEXT)");
 
 //        //-----temporary-----
 //        sqLiteHelper.insertControlType("poziom oleju");
@@ -208,15 +209,12 @@ public class MainActivity extends AppCompatActivity {
             body = name + ", opóźnienie: " + diff + " km";
         }
 
-        //NotificationChannel channel = new NotificationChannel(String.valueOf(i), name, NotificationManager.IMPORTANCE_DEFAULT);
-
         Notification notifi = new Notification.Builder(this).
                 setContentTitle(title).
                 setContentText(body).
                 setSmallIcon(R.drawable.ico).
                 build();
-        
-        //notificationManager.createNotificationChannel(channel);
+
         notificationManager.notify(i, notifi);
         mediaPlayer.start();
     }
@@ -224,9 +222,10 @@ public class MainActivity extends AppCompatActivity {
     private void clearDB() {
         sqLiteHelper.queryData("DROP TABLE CAR");
         sqLiteHelper.queryData("DROP TABLE CONTROL");
+        sqLiteHelper.queryData("DROP TABLE EXPENSE");
+        sqLiteHelper.queryData("DROP TABLE NOTIFI");
         sqLiteHelper.queryData("DROP TABLE CONTROL_TYPE");
         sqLiteHelper.queryData("DROP TABLE SEASON_CHANGE_TYPE");
         sqLiteHelper.queryData("DROP TABLE MILEAGE_CHANGE_TYPE");
-        sqLiteHelper.queryData("DROP TABLE NOTIFI");
     }
 }
