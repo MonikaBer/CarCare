@@ -84,7 +84,25 @@ public class AddControlActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    //TODO: save notify to DB
+                    //save notify to DB
+                    String serviceName = controlTypeTV.getText().toString();
+                    int serviceCycle;
+                    try {
+                        serviceCycle = Integer.parseInt(controlCycleET.getText().toString());
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), "Niewłaściwy format specyfikacji cyklu", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    int mileage = Integer.parseInt(controlMileageTV.getText().toString());
+                    String serviceTime = String.valueOf(mileage + serviceCycle);
+                    String serviceType = "KONTROLA";
+
+                    MainActivity.sqLiteHelper.insertNotifi(
+                            serviceName,
+                            serviceTime,
+                            serviceType
+                    );
+
                     Toast.makeText(getApplicationContext(), "Dodano nowe powiadomienie", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();

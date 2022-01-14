@@ -146,6 +146,7 @@
             android:layout_gravity="center"
             app:fabCustomSize="50dp"
             android:clickable="true"
+            android:onClick="click"
             app:srcCompat="@android:drawable/ic_input_add"
             android:id="@+id/expensesFab"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -160,6 +161,7 @@
             android:layout_gravity="center"
             app:fabCustomSize="50dp"
             android:clickable="true"
+            android:onClick="click"
             app:srcCompat="@android:drawable/ic_input_add"
             android:id="@+id/repairsFab"
             android:layout_marginBottom="16dp"
@@ -174,25 +176,12 @@
             android:layout_gravity="center"
             app:fabCustomSize="50dp"
             android:clickable="true"
+            android:onClick="click"
             app:srcCompat="@android:drawable/ic_input_add"
             android:id="@+id/controlsFab"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/repairsFab"
             app:layout_constraintStart_toEndOf="@+id/controlsBtn"
-            android:layout_marginStart="18dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:fabCustomSize="50dp"
-            android:clickable="true"
-            app:srcCompat="@android:drawable/ic_input_add"
-            android:id="@+id/notifisFab"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/controlsFab"
-            app:layout_constraintStart_toEndOf="@+id/notifisBtn"
             android:layout_marginStart="18dp"
             tools:ignore="SpeakableTextPresentCheck" />
 

@@ -154,9 +154,6 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 return;
-            case R.id.mileagePhotoBtn:
-
-                break;
             case R.id.notifisBtn:
                 intent = new Intent(MainActivity.this, NotifisActivity.class);
                 break;
@@ -169,6 +166,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.expensesBtn:
                 intent = new Intent(MainActivity.this, ExpensesActivity.class);
                 break;
+            case R.id.controlsFab:
+                intent = new Intent(MainActivity.this, AddControlActivity.class);
+                intent.putExtra("ifOnlyEdition", "false");
+                break;
+            default:
+                return;
         }
         startActivity(intent);
     }
@@ -183,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         while (cursor.moveToNext()) {
             id = cursor.getInt(0);
             String type = cursor.getString(3);
-            if (type.equals("SEASON_CHANGE"))
+            if (type.equals("SEZON"))
                 continue;
 
             int notifiMileage = Integer.parseInt(cursor.getString(2));
@@ -199,10 +202,10 @@ public class MainActivity extends AppCompatActivity {
     private void sendNotifi(String name, String type, String diff, int i) {
         String title = null;
         String body = null;
-        if (type.equals("MILEAGE_CHANGE")) {
+        if (type.equals("PRZEBIEG")) {
             title = "Wymiana zależna od przebiegu";
             body = name + ", opóźnienie: " + diff + " km";
-        } else if (type.equals("CONTROL")) {
+        } else if (type.equals("KONTROLA")) {
             title = "Kontrola";
             body = name + ", opóźnienie: " + diff + " km";
         }

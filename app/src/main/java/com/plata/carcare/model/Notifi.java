@@ -1,27 +1,25 @@
 package com.plata.carcare.model;
 
-import java.util.Date;
-
 public class Notifi {
 
-    private Date date;
+    private int id;
     private String name;
-    private Service service;
-    private String desc;
+    private String time;  // current mileage / season (WINTER / SUMMER)
+    private String type;  // CONTROL / SEASON_CHANGE / MILEAGE_CHANGE
 
-    public Notifi(Date date, String name, Service service, String desc) {
-        this.date = date;
+    public Notifi(int id, String name, String time, String type) {
+        this.id = id;
         this.name = name;
-        this.service = service;
-        this.desc = desc;
+        this.time = time;
+        this.type = type;
     }
 
-    public Date getDate() {
-        return date;
+    public int getId() {
+        return id;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -32,19 +30,19 @@ public class Notifi {
         this.name = name;
     }
 
-    public Service getService() {
-        return service;
+    public String getTime() {
+        return time;
     }
 
-    public void setService(Service service) {
-        this.service = service;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getType() {
+        return type;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setType(String type) {
+        this.type = type;
     }
 }

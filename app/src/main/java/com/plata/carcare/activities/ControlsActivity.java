@@ -43,7 +43,6 @@ public class ControlsActivity extends AppCompatActivity {
         if (cursor == null)
             return;
 
-        int count = 1;
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
             Control.Status status = Control.Status.valueOf(cursor.getString(1));
@@ -59,7 +58,6 @@ public class ControlsActivity extends AppCompatActivity {
             String type = cursor.getString(6);
 
             controlsList.add(new Control(id, status, date, name, mileage, desc, type));
-            ++count;
         }
     }
 

@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import androidx.annotation.Nullable;
-import com.plata.carcare.model.Control;
 import com.plata.carcare.model.Service;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
@@ -167,6 +166,28 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void deleteMileageChangeType(int id) {
         SQLiteDatabase database = getWritableDatabase();
         String sql = "DELETE FROM MILEAGE_CHANGE_TYPE WHERE id = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, String.valueOf(id));
+        statement.executeUpdateDelete();
+    }
+
+    public void insertNotifi(String serviceName, String serviceTime, String serviceType) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO NOTIFI VALUES (NULL, ?, ?, ?)";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, serviceName);
+        statement.bindString(2, serviceTime);
+        statement.bindString(3, serviceType);
+        statement.executeInsert();
+    }
+
+    public void deleteNotifi(int id) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE FROM NOTIFI WHERE id = ?";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
