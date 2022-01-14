@@ -78,9 +78,9 @@ public class ControlsAdapter extends RecyclerView.Adapter<ControlsAdapter.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            timeTV = (TextView) itemView.findViewById(R.id.timeTV);
-            descTV = (TextView) itemView.findViewById(R.id.descTV);
-            deleteItemFab = (FloatingActionButton) itemView.findViewById(R.id.deleteItemFab);
+            timeTV = (TextView) itemView.findViewById(R.id.controlItemTimeTV);
+            descTV = (TextView) itemView.findViewById(R.id.controlItemDescTV);
+            deleteItemFab = (FloatingActionButton) itemView.findViewById(R.id.deleteControlItemFab);
         }
 
         public TextView getTimeTV() {

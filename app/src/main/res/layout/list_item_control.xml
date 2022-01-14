@@ -9,7 +9,7 @@
         android:paddingBottom="2.5dp" >
 
         <TextView
-                android:id="@+id/timeTV"
+                android:id="@+id/controlItemTimeTV"
                 android:layout_width="150dp"
                 android:layout_height="48dp"
                 android:gravity="center"
@@ -24,22 +24,22 @@
                 android:layout_marginBottom="8dp" />
 
         <TextView
-                android:id="@+id/descTV"
+                android:id="@+id/controlItemDescTV"
                 android:layout_width="150dp"
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:textColor="#040404"
                 android:textSize="15sp"
                 android:typeface="sans"
-                app:layout_constraintStart_toEndOf="@+id/timeTV"
+                app:layout_constraintStart_toEndOf="@+id/controlItemTimeTV"
                 android:layout_marginStart="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/deleteItemFab"
+                app:layout_constraintEnd_toStartOf="@+id/deleteControlItemFab"
                 android:layout_marginEnd="8dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/deleteItemFab"
+                android:id="@+id/deleteControlItemFab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
