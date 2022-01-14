@@ -45,8 +45,6 @@ public class CarDataActivity extends AppCompatActivity {
 
         int count = 1;
         while (cursor.moveToNext() && count == 1) {
-            //int id = cursor.getInt(0);
-
             byte[] photo = cursor.getBlob(3);
             carPhotoDatumIV.setImageBitmap(BitmapFactory.decodeByteArray(photo, 0, photo.length));
 
@@ -55,7 +53,6 @@ public class CarDataActivity extends AppCompatActivity {
             carModelET.setText(cursor.getString(5));
             carProductionYearET.setText(String.valueOf(cursor.getInt(6)));
             carEngineTypeET.setText(cursor.getString(7));
-
             ++count;
         }
     }
@@ -84,7 +81,15 @@ public class CarDataActivity extends AppCompatActivity {
                 byte[] photo = Utils.imageViewToByte(carPhotoDatumIV);
                 String brand = carBrandET.getText().toString();
                 String model = carModelET.getText().toString();
-                int productionYear = Integer.parseInt(carProductionYearET.getText().toString());
+
+                int productionYear;
+                try {
+                    productionYear = Integer.parseInt(carProductionYearET.getText().toString());
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Niewłaściwy format roku produkcji!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String engineType = carEngineTypeET.getText().toString();
 
                 Cursor cursor = MainActivity.sqLiteHelper.getData("SELECT * FROM CAR");

@@ -121,6 +121,12 @@ public class AddControlActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.controlSaveBtn) {
+            String name = controlNameET.getText().toString();
+            if (name.equals("")) {
+                Toast.makeText(getApplicationContext(), "Wprowadź nazwę kontroli!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
             String date = controlDateET.getText().toString();
             try {
                 Date checkedDate = new SimpleDateFormat("dd-mm-yyyy").parse(date);
@@ -137,7 +143,6 @@ public class AddControlActivity extends AppCompatActivity {
                 return false;
             }
 
-            String name = controlNameET.getText().toString();
             String desc = controlDescET.getText().toString();
 
             String type;

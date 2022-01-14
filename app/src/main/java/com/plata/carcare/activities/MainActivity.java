@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView carPhotoIV;
     private TextView carNameTV;
     private EditText carMileageET;
-    private int id;
+    private int carId;
     private ImageButton mileagePhotoBtn;
     private Bitmap bitmap;
     private MediaPlayer mediaPlayer;
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         int count = 1;
         while (cursor.moveToNext() && count == 1) {
-            id = cursor.getInt(0);
+            carId = cursor.getInt(0);
             carNameTV.setText(cursor.getString(1));
             carMileageET.setText(String.valueOf(cursor.getInt(2)));
 
@@ -146,12 +146,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.carMileageSaveBtn:
                 try {
                     int mileage = Integer.parseInt(carMileageET.getText().toString());
-                    sqLiteHelper.updateMileage(id, mileage);
+                    sqLiteHelper.updateMileage(carId, mileage);
                     Toast.makeText(getApplicationContext(), "Zaktualizowano przebieg", Toast.LENGTH_SHORT).show();
-
                     generateMileageNotifis(mileage);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Niewłaściwy format przebiegu!", Toast.LENGTH_SHORT).show();
                 }
                 return;
             case R.id.notifisBtn:
@@ -184,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
 
         int notifiCounter = 0;
         while (cursor.moveToNext()) {
-            id = cursor.getInt(0);
             String type = cursor.getString(3);
             if (type.equals("SEZON"))
                 continue;

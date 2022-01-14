@@ -41,13 +41,11 @@ public class TypeChooseActivity extends AppCompatActivity {
         if (cursor == null)
             return;
 
-        int count = 1;
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
             String type = cursor.getString(1);
 
             controlTypesList.add(new ControlType(id, type));
-            ++count;
         }
     }
 
