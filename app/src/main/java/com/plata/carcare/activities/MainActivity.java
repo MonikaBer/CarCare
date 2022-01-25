@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         sqLiteHelper = new SQLiteHelper(this, "CarDB.sqlite", null, 1);
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CAR (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, mileage INTEGER, photo BLOB, brand TEXT, model TEXT, production_year INTEGER, engine_type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CONTROL (id INTEGER PRIMARY KEY AUTOINCREMENT, status TEXT, date TEXT, name TEXT, mileage INTEGER, desc TEXT, type TEXT)");
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS EXPENSE (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, mileage INTEGER, name text, cost REAL, desc TEXT)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS EXPENSE (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, mileage INTEGER, name TEXT, cost REAL, desc TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS NOTIFI (id INTEGER PRIMARY KEY AUTOINCREMENT, service_name TEXT, service_time TEXT, service_type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CONTROL_TYPE (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SEASON_CHANGE_TYPE (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT)");
@@ -168,6 +168,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.controlsFab:
                 intent = new Intent(MainActivity.this, AddControlActivity.class);
+                intent.putExtra("ifOnlyEdition", "false");
+                break;
+            case R.id.expensesFab:
+                intent = new Intent(MainActivity.this, AddExpenseActivity.class);
                 intent.putExtra("ifOnlyEdition", "false");
                 break;
             default:

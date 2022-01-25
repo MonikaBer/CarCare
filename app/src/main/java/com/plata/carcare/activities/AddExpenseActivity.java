@@ -20,8 +20,8 @@ import java.util.Date;
 public class AddExpenseActivity extends AppCompatActivity {
 
     private ActivityAddExpenseBinding binding;
-    private EditText expenseDateET, expenseDescET, expenseCycleET, expenseCostET;
-    private TextView expenseNameTV, expenseMileageTV;
+    private EditText expenseDateET, expenseNameET, expenseDescET, expenseCycleET, expenseCostET;
+    private TextView expenseMileageTV;
     private Button saveNotifiBtn;
     private boolean ifOnlyEdition;
     private int expenseId;
@@ -54,7 +54,7 @@ public class AddExpenseActivity extends AppCompatActivity {
 
                 expenseDateET.setText(date);
                 expenseMileageTV.setText(String.valueOf(mileage));
-                expenseNameTV.setText(name);
+                expenseNameET.setText(name);
                 expenseCostET.setText(String.valueOf(cost));
                 expenseDescET.setText(desc);
                 ++count;
@@ -75,17 +75,51 @@ public class AddExpenseActivity extends AppCompatActivity {
             }
         }
 
-        if (getIntent().getStringExtra("expenseName") != null) {
-            expenseNameTV.setText(getIntent().getStringExtra("controlName"));
-        }
+        saveNotifiBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    //save notify to DB
+//                    String date = expenseDateET.getText().toString();
+//                    int mileage = Integer.parseInt(expenseMileageTV.getText().toString());
+//                    String name = expenseNameET.getText().toString();
+//                    double cost = Double.parseDouble(expenseCostET.getText().toString());
+//                    String desc = expenseDescET.getText().toString();
+
+
+                    String serviceName = expenseNameET.getText().toString();
+                    int serviceCycle;
+                    try {
+                        serviceCycle = Integer.parseInt(expenseCycleET.getText().toString());
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), "Niewłaściwy format specyfikacji cyklu", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    int mileage = Integer.parseInt(expenseMileageTV.getText().toString());
+                    String serviceTime = String.valueOf(mileage + serviceCycle);
+                    String serviceType = "WYDATEK";
+
+                    MainActivity.sqLiteHelper.insertNotifi(
+                            serviceName,
+                            serviceTime,
+                            serviceType
+                    );
+
+                    Toast.makeText(getApplicationContext(), "Dodano nowe powiadomienie", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void init() {
-        expenseNameTV = (TextView) findViewById(R.id.newExpenseTypeChooseTV);
+        expenseNameET = (EditText) findViewById(R.id.newExpenseNameET);
         expenseDateET = (EditText) findViewById(R.id.newExpenseDateET);
         expenseDescET = (EditText) findViewById(R.id.newExpenseDescET);
         expenseCycleET = (EditText) findViewById(R.id.newExpenseCycleET);
         expenseMileageTV = (TextView) findViewById(R.id.newExpenseMileageAutofillTV);
+        expenseCostET = (EditText) findViewById(R.id.newExpenseCostET) ;
         saveNotifiBtn = (Button) findViewById(R.id.newExpenseSaveNotifiBtn);
     }
 
@@ -99,9 +133,9 @@ public class AddExpenseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.expenseSaveBtn) {
-            String name = expenseNameTV.getText().toString();
+            String name = expenseNameET.getText().toString();
             if (name.equals("")) {
-                Toast.makeText(getApplicationContext(), "Wybierz typ wydatku!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Wpisz nazwę wydatku!", Toast.LENGTH_SHORT).show();
                 return false;
             }
 
@@ -167,18 +201,5 @@ public class AddExpenseActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void click(View v) {
-        Intent intent = null;
-        switch (v.getId()) {
-            case R.id.newExpenseTypeChooseTV:
-                intent = new Intent(AddExpenseActivity.this, TypeChooseActivity.class);
-                intent.putExtra("id", String.valueOf(controlId));
-                intent.putExtra("ifOnlyEdition", String.valueOf(ifOnlyEdition));
-                intent.putExtra("activityType", "EXPENSE");
-                break;
-        }
-        startActivity(intent);
     }
 }
