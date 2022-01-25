@@ -211,6 +211,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (type.equals("KONTROLA")) {
             title = "Kontrola";
             body = name + ", opóźnienie: " + diff + " km";
+        } else if (type.equals("WYDATEK")) {
+            title = "Wydatek";
+            body = name + ", opóźnienie: " + diff + " km";
         }
 
         Notification notifi = new Notification.Builder(this).
