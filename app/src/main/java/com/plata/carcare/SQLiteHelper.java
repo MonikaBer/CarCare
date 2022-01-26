@@ -113,6 +113,51 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         statement.executeUpdateDelete();
     }
 
+    public void insertSeasonChange(Service.Status status, String date, String name, int mileage, String desc, String type, double partsCost,  String season) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO SEASON_CHANGE VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, status.name());
+        statement.bindString(2, date);
+        statement.bindString(3, name);
+        statement.bindLong(4, mileage);
+        statement.bindString(5, desc);
+        statement.bindString(6, type);
+        statement.bindDouble(7, partsCost);
+        statement.bindString(8, season);
+        statement.executeInsert();
+    }
+
+    public void updateSeasonChange(int id, Service.Status status, String date, String name, int mileage, String desc, String type, double partsCost, String season) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "UPDATE SEASON_CHANGE SET status = ?, date = ?, name = ?, mileage = ?, desc = ?, type = ?, parts_cost = ?, season = ? WHERE id = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, status.name());
+        statement.bindString(2, date);
+        statement.bindString(3, name);
+        statement.bindLong(4, mileage);
+        statement.bindString(5, desc);
+        statement.bindString(6, type);
+        statement.bindDouble(7, partsCost);
+        statement.bindString(8, season);
+        statement.bindLong(9, id);
+        statement.executeUpdateDelete();
+    }
+
+    public void deleteSeasonChange(int id) {
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE FROM SEASON_CHANGE WHERE id = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1, String.valueOf(id));
+        statement.executeUpdateDelete();
+    }
+
     public void insertExpense(String date, int mileage, String name, double cost, String desc) {
         SQLiteDatabase database = getWritableDatabase();
         String sql = "INSERT INTO EXPENSE VALUES (NULL, ?, ?, ?, ?, ?)";

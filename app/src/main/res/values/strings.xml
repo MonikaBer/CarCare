@@ -54,4 +54,19 @@
     <string name="newExpenseCostET">Wpisz kwotę</string>
     <string name="newExpenseCostTV">Kwota</string>
 
+    <string name="title_activity_add_repair">Nowa naprawa</string>
+    <string name="title_activity_type_choose_repair">Wybór typu wymiany</string>
+    <string name="newRepairTypeTV">Typ wymiany</string>
+    <string name="newRepairTypeChooseTV">Wybór wymiany</string>
+    <string name="newRepairNameTV">Nazwa</string>
+    <string name="newRepairNameET">Wpisz nazwę</string>
+    <string name="newRepairDateET">Wpisz datę</string>
+    <string name="newRepairDescET">Wpisz opis wymiany sezonowej</string>
+    <string name="newRepairCycleET">zima/lato</string>
+    <string name="newRepairCycleTV">Kiedy</string>
+    <string name="newRepairMileageTV">Przebieg</string>
+    <string name="newRepairPartsCostTV">Koszt części</string>
+    <string name="newRepairPartsCostET">Wpisz koszt</string>
+    <string name="newRepairSeasonET">zima/lato</string>
+    <string name="newRepairSeasonTV">Sezon</string>
 </resources>

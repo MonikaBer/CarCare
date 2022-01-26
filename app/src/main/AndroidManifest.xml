@@ -12,14 +12,29 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.CarCare">
         <activity
+                android:name=".activities.TypeChooseRepairActivity"
+                android:exported="true"
+                android:label="@string/title_activity_type_choose_repair"
+                android:theme="@style/Theme.CarCare.NoActionBar" />
+        <activity
+                android:name=".activities.AddRepairActivity"
+                android:exported="true"
+                android:label="@string/title_activity_add_repair"
+                android:parentActivityName=".activities.RepairsActivity"
+                android:theme="@style/Theme.CarCare.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.plata.carcare.activities.RepairsActivity" />
+        </activity>
+        <activity
                 android:name=".activities.AddExpenseActivity"
                 android:exported="true"
                 android:label="@string/title_activity_add_expense"
                 android:parentActivityName=".activities.ExpensesActivity"
-                android:theme="@style/Theme.CarCare.NoActionBar" >
-                <meta-data
-                        android:name="android.support.PARENT_ACTIVITY"
-                        android:value="com.plata.carcare.activities.ExpensesActivity" />
+                android:theme="@style/Theme.CarCare.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.plata.carcare.activities.ExpensesActivity" />
         </activity>
         <activity
                 android:name=".activities.TypeChooseActivity"

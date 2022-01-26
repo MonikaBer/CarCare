@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CONTROL (id INTEGER PRIMARY KEY AUTOINCREMENT, status TEXT, date TEXT, name TEXT, mileage INTEGER, desc TEXT, type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS EXPENSE (id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, mileage INTEGER, name TEXT, cost REAL, desc TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS NOTIFI (id INTEGER PRIMARY KEY AUTOINCREMENT, service_name TEXT, service_time TEXT, service_type TEXT)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SEASON_CHANGE (id INTEGER PRIMARY KEY AUTOINCREMENT, status TEXT, date TEXT, name TEXT, mileage INTEGER, desc TEXT, type TEXT, parts_cost REAL, season TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CONTROL_TYPE (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SEASON_CHANGE_TYPE (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT)");
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS MILEAGE_CHANGE_TYPE (id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT)");
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 //        sqLiteHelper.insertMileageChangeType("wymiana rozrządu");
 //        sqLiteHelper.insertMileageChangeType("wymiana oleju silnikowego");
 //        //-----temporary-----
-
+//        sqLiteHelper.queryData("DROP TABLE NOTIFI");
 
         // get data from DB
         Cursor cursor = sqLiteHelper.getData("SELECT * FROM CAR");
@@ -173,6 +174,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.expensesFab:
                 intent = new Intent(MainActivity.this, AddExpenseActivity.class);
                 intent.putExtra("ifOnlyEdition", "false");
+            case R.id.repairsFab:
+                intent = new Intent(MainActivity.this, AddRepairActivity.class);
+                intent.putExtra("ifOnlyEdition", "false");
                 break;
             default:
                 return;
@@ -214,6 +218,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (type.equals("WYDATEK")) {
             title = "Wydatek";
             body = name + ", opóźnienie: " + diff + " km";
+        } else if (type.equals("SEZON")) {
+            title = "Wymiana zależna od sezonu";
+            body = name;
         }
 
         Notification notifi = new Notification.Builder(this).
@@ -231,6 +238,8 @@ public class MainActivity extends AppCompatActivity {
         sqLiteHelper.queryData("DROP TABLE CONTROL");
         sqLiteHelper.queryData("DROP TABLE EXPENSE");
         sqLiteHelper.queryData("DROP TABLE NOTIFI");
+        sqLiteHelper.queryData("DROP TABLE SEASON_CHANGE");
+        sqLiteHelper.queryData("DROP TABLE MILEAGE_CHANGE");
         sqLiteHelper.queryData("DROP TABLE CONTROL_TYPE");
         sqLiteHelper.queryData("DROP TABLE SEASON_CHANGE_TYPE");
         sqLiteHelper.queryData("DROP TABLE MILEAGE_CHANGE_TYPE");

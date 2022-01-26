@@ -46,7 +46,7 @@ public class NotifisAdapter extends RecyclerView.Adapter<NotifisAdapter.ViewHold
         holder.getTypeTV().setText(type);
         holder.getNameTV().setText(String.valueOf(notifis.get(position).getName()));
 
-        if (!type.equals("SEASON_CHANGE")) {
+        if (!type.equals("SEZON")) {
             // calculate mileage diff
             // get current mileage from DB
             Cursor cursor = MainActivity.sqLiteHelper.getData("SELECT * FROM CAR");
@@ -76,24 +76,28 @@ public class NotifisAdapter extends RecyclerView.Adapter<NotifisAdapter.ViewHold
                 holder.getDiffTV().setText("za " + Math.abs(diff) + " km");
             }
         } else {
-            // calculate days diff
-            String time = String.valueOf(notifis.get(position).getTime());
-            Long days = null;
-            try {
-                days = new SimpleDateFormat("dd-mm-yyyy").parse(time).getTime() / (1000 * 60 * 60* 24);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            long currDays = (long) Math.floor(Double.parseDouble(String.valueOf(System.currentTimeMillis())) / (1000 * 60 * 60* 24));
-            long diff = currDays - days;
+//            // calculate days diff
+//            String time = String.valueOf(notifis.get(position).getTime());
+//            Long days = null;
+//            try {
+//                days = new SimpleDateFormat("dd-mm-yyyy").parse(time).getTime() / (1000 * 60 * 60* 24);
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+//            long currDays = (long) Math.floor(Double.parseDouble(String.valueOf(System.currentTimeMillis())) / (1000 * 60 * 60* 24));
+//            long diff = currDays - days;
+//
+//            if (diff > 0) {
+//                holder.getTypeTV().setBackgroundColor(R.color.colorRed);
+//                holder.getTypeTV().setText("od " + diff + " dni");
+//            } else {
+//                holder.getTypeTV().setBackgroundColor(R.color.colorGreen);
+//                holder.getTypeTV().setText("za " + Math.abs(diff) + " dni");
+//            }
 
-            if (diff > 0) {
-                holder.getTypeTV().setBackgroundColor(R.color.colorRed);
-                holder.getTypeTV().setText("od " + diff + " dni");
-            } else {
-                holder.getTypeTV().setBackgroundColor(R.color.colorGreen);
-                holder.getTypeTV().setText("za " + Math.abs(diff) + " dni");
-            }
+            String time = String.valueOf(notifis.get(position).getTime());
+            holder.getTypeTV().setBackgroundColor(R.color.colorGreen);
+            holder.getDiffTV().setText(time);
         }
 
         holder.getDeleteNotifiItemFab().setOnClickListener(new View.OnClickListener() {
